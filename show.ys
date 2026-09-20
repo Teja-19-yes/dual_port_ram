@@ -1,0 +1,13 @@
+# Read the design
+read_verilog dual_port_ram.v
+
+# Synthesize
+synth -top dual_port_ram
+
+# Optimize
+opt
+opt_clean -purge
+
+# Generate netlist SVG
+show -format svg -prefix netlist dual_port_ram
+
