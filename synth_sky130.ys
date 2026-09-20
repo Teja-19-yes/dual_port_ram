@@ -1,0 +1,17 @@
+# Read design
+read_verilog dual_port_ram.v
+
+# Synthesize for Sky130
+synth -top dual_port_ram
+
+# Map to Sky130 cells
+dfflibmap -liberty /path/to/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty /path/to/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Clean up
+opt_clean -purge
+
+# Write outputs
+write_verilog -noattr synth_sky130_output.v
+stat
+
