@@ -1,0 +1,17 @@
+# Read the design
+read_verilog dual_port_ram.v
+
+# Synthesize for generic target
+synth -top dual_port_ram
+
+# Optimize
+opt
+opt_clean -purge
+
+# Write outputs
+write_verilog -noattr synth_output.v
+write_json synth_output.json
+
+# Show statistics
+stat
+
